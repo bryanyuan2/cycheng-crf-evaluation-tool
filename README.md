@@ -7,7 +7,7 @@
 
 ### From Source
 ```bash
-git clone <repository-url>
+git clone git@github.com:bryanyuan2/cycheng-crf-evaluation-tool.git
 cd crf-evaluation-tool
 pip install -r requirements.txt
 ```
