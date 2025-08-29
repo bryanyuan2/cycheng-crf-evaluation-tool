@@ -1,0 +1,4 @@
+# Production dependencies
+# (No external dependencies required for the core functionality)
+
+# Development dependencies (install with: pip install -r requirements-dev.txt)
