@@ -27,7 +27,7 @@ class crf_confusion_matrix_class:
 	guess_correct = []
 	guess_wrong = []
 
-	def __init__(self,correct_label_pool = ["I-NP","B-NP","B-ADJP","I-ADJP"], filename = "final"):
+	def __init__(self,correct_label_pool = ["I-NP","B-NP","B-ADJP","I-ADJP"], filename = "./sample/sample_crf_output"):
 
 		self.correct_label_pool = correct_label_pool
 
@@ -94,16 +94,16 @@ class crf_confusion_matrix_class:
 		total_data = 0
 		correct_data = 0
 
-		print "====\nConfusion Matrix\n===="
-		print self.del_synbol_const + self.del_synbol_const,
+		print("====\nConfusion Matrix\n====")
+		print(self.del_synbol_const + self.del_synbol_const, end='')
 		for i in range (0,len(self.correct_label_pool)):
-			print self.correct_label_pool[i] + self.del_synbol_const,
-		print " [predicted class]"
+			print(self.correct_label_pool[i] + self.del_synbol_const, end='')
+		print(" [predicted class]")
 
 		#correct_label_pool[i/len(correct_label_pool)]
 		for i in range (0,len(self.full_confusion_matrix)):
 			if (i%len(self.correct_label_pool)==0):
-				print self.correct_label_pool[int(i/len(self.correct_label_pool))] + str(self.del_synbol_const) + str(self.del_synbol_const),
+				print(self.correct_label_pool[int(i/len(self.correct_label_pool))] + str(self.del_synbol_const) + str(self.del_synbol_const), end='')
 
 			# precision_label_pool
 			self.precision_label_pool[int(i%len(self.correct_label_pool))] = self.precision_label_pool[i%len(self.correct_label_pool)] + self.full_confusion_matrix[i]
@@ -112,12 +112,12 @@ class crf_confusion_matrix_class:
 			# total_correct_data
 			total_data = total_data + self.full_confusion_matrix[i]
 			
-			print str(self.full_confusion_matrix[i]) + self.del_synbol_const,
+			print(str(self.full_confusion_matrix[i]) + self.del_synbol_const, end='')
 			if ((i+1)%len(self.correct_label_pool)==0):
-				print ""
-		print "[actual class]"
+				print("")
+		print("[actual class]")
 		
-		print "\n====\n(Precision, Recall, F1 score)\n===="
+		print("\n====\n(Precision, Recall, F1 score)\n====")
 		for i in range(0,len(self.precision_label_pool)):
 			#print self.precision_label_pool[i] 
 			curr_id = i*(len(self.correct_label_pool)+1)
@@ -125,7 +125,7 @@ class crf_confusion_matrix_class:
 			self.precision_label_pool[i] =  self.full_confusion_matrix[curr_id] / self.precision_label_pool[i]
 			self.recall_label_pool[i] =  self.full_confusion_matrix[curr_id] / self.recall_label_pool[i]
 			
-			print self.correct_label_pool[i] + " = (" + str(self.precision_label_pool[i]) + ", " + str(self.recall_label_pool[i]) + ", " + str(2*self.precision_label_pool[i]*self.recall_label_pool[i]/(self.precision_label_pool[i]+self.recall_label_pool[i])) + ")"
+			print(self.correct_label_pool[i] + " = (" + str(self.precision_label_pool[i]) + ", " + str(self.recall_label_pool[i]) + ", " + str(2*self.precision_label_pool[i]*self.recall_label_pool[i]/(self.precision_label_pool[i]+self.recall_label_pool[i])) + ")")
 			
-		print "Accuracy = " + str(correct_data/total_data)
+		print("Accuracy = " + str(correct_data/total_data))
 		
