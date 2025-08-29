@@ -1,15 +1,7 @@
 # cycheng CRF Evaluation Tool
 
-A Python 3 tool for evaluating CRF (Conditional Random Field) test results with confusion matrix analysis, precision, recall, and F1-score calculations.
-
-## Features
-
-- **Confusion Matrix Analysis**: Generate and display confusion matrices for CRF test results
-- **Performance Metrics**: Calculate precision, recall, F1-score, and accuracy for each label
-- **Unit Testing Support**: Comprehensive test suite with high code coverage
-- **Prediction Analysis**: Save correct and incorrect predictions to separate files
-- **Python 3 Compatible**: Modern Python 3 codebase with type hints
-- **Clean Architecture**: Well-structured, modular design for easy maintenance
+- A Python 3 tool for evaluating CRF (Conditional Random Field) test results with confusion matrix analysis, precision, recall, and F1-score calculations.
+- Generate and display confusion matrices (precision, recall, F1-score, and accuracy) for CRF test results
 
 ## Installation
 
@@ -123,57 +115,10 @@ I-ADJP = (0.666667, 0.096774, 0.169014)
 Accuracy = 0.935709
 ```
 
-## Migration from v1.x
-
-The new version provides a cleaner API. Here's how to migrate:
-
-### Old Code (v1.x)
-```python
-from crf_confusion_matrix_class import crf_confusion_matrix_class
-
-test = crf_confusion_matrix_class(correct_label_pool, filename)
-test.confusion_matrix_print_func()
-```
-
-### New Code (v2.x)
-```python
-from crf_evaluator import CRFEvaluator
-
-evaluator = CRFEvaluator(correct_label_pool, filename)
-evaluator.print_confusion_matrix()
-evaluator.print_metrics()
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
-
 ## Requirements
 
 - Python 3.7+
-- No external dependencies for core functionality
-
-## License
-
-MIT License
 
 ## References
 
 - CRF++: Yet Another CRF toolkit [(https://taku910.github.io/crfpp/)](https://taku910.github.io/crfpp/)
-
-## Changelog
-
-### v2.0.0 (Vibe Coding w/ Copilot+Claude4)
-- Complete rewrite for Python 3
-- Added comprehensive unit tests
-- Improved error handling and validation
-- Added type hints
-- Cleaner, more maintainable architecture
-- Better documentation
-
-### v1.x
-- Original Python 2 implementation
